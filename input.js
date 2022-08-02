@@ -1,12 +1,14 @@
+let connection;
 const handleUserInput = function (key) {
   if (key === '\u0003') process.exit();
-  /*if (key === '\u001b[A') conn.write('Move: up');
-  if (key === '\u001b[B') conn.write('Move: down');
-  if (key === '\u001b[C') conn.write('Move: right');
-  if (key === '\u001b[D') conn.write('Move: left');*/
+  if (key === 'w') connection.write('Move: up');
+  if (key === 's') connection.write('Move: down');
+  if (key === 'd') connection.write('Move: right');
+  if (key === 'a') connection.write('Move: left');
 
 };
-const setupInput = function() {
+const setupInput = function(conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
